@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -l
 
 # 1. 检查privileged特权容器
 # ./image-check.sh privileged
