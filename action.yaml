@@ -10,8 +10,8 @@ inputs:
     description: 'image need check'
     required: true
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  result: # image matched of output
+    description: 'The image matched'
 runs:
   using: 'docker'
   image: 'Dockerfile'
