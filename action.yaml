@@ -19,5 +19,5 @@ runs:
     - run: docker pull ${{ inputs.image }}
       shell: bash
     - id: image-check
-      run: echo "result=$(sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }})" >> $GITHUB_OUTPUT
+      run: sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }}) >> ./image.txt && echo "result=$(cat ./image.txt)" >> $GITHUB_OUTPUT
       shell: bash
