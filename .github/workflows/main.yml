@@ -17,4 +17,4 @@ jobs:
           image: 'node:latest'
       # Use the output from the `hello` step
       - name: Get the output image
-        run: echo "${{ steps.hello.outputs.result }}"
+        run: "${{ steps.hello.outputs }}"
