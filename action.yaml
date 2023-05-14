@@ -12,9 +12,10 @@ inputs:
 outputs:
   result: # image matched of output
     description: 'The image matched'
+    value:  ${{ steps.image-check.outputs.result }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-    - ${{ inputs.image-check }}
-    - ${{ inputs.image }}
+  using: 'composite'
+  steps:
+    - id: image-check
+      run: echo "result=$(${{ github.action_path }}/image-check.sh ${{ inputs.image-check }} ${{ inputs.image }})" >> $GITHUB_OUTPUT
+      shell: bash
