@@ -16,6 +16,8 @@ outputs:
 runs:
   using: 'composite'
   steps:
+    - run: docker pull ${{ inputs.image }}
+      shell: bash
     - id: image-check
-      run: echo "result=$(${{ github.action_path }}/image-check.sh ${{ inputs.image-check }} ${{ inputs.image }})" >> $GITHUB_OUTPUT
+      run: echo "result=$(sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} ${{ inputs.image }})" >> $GITHUB_OUTPUT
       shell: bash
