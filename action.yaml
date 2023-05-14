@@ -12,12 +12,12 @@ inputs:
 outputs:
   result: # image matched of output
     description: 'The image matched'
-    value:  ${{ steps.image-check.outputs }}
+    value:  ${{ steps.image-check.outputs.result }}
 runs:
   using: 'composite'
   steps:
     - run: docker pull ${{ inputs.image }}
       shell: bash
     - id: image-check
-      run: sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }})
+      run: sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }}) && echo "result=1" >> $GITHUB_OUTPUT
       shell: bash
