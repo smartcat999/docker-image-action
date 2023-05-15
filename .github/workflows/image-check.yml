@@ -1,7 +1,7 @@
 on: [push]
 
 jobs:
-  tools-image-check-job:
+  image-security-check-job:
     runs-on: ubuntu-latest
     name: A job to check image security configuration
     steps:
@@ -9,50 +9,28 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Image check action step tools
+      - name: Image tools check
         uses: ./ # Uses an action in the root directory
         id: image-check
         with:
           image-check: tools
           image: node:latest
           output: tools.txt
-      # Use the output from the `hello` step
+
       - name: Archive image check results
         uses: actions/upload-artifact@v3
         with:
           name: tools-image-check-result
           path: tools.txt
 
-      - name: Image check action step permission
+      - name: Image permission check
         uses: ./ # Uses an action in the root directory
         id: image-check-permission
         with:
           image-check: permission
           image: node:latest
           output: permission.txt
-      # Use the output from the `hello` step
-      - name: Archive image check results
-        uses: actions/upload-artifact@v3
-        with:
-          name: permission-image-check-result
-          path: permission.txt
 
-  permission-image-check-job:
-    runs-on: ubuntu-latest
-    name: A job to check image security configuration
-    steps:
-      # To use this repository's private action,
-      # you must check out the repository
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Image check action step
-        uses: ./ # Uses an action in the root directory
-        id: image-check
-        with:
-          image-check: permission
-          image: node:latest
-          output: permission.txt
-      # Use the output from the `hello` step
       - name: Archive image check results
         uses: actions/upload-artifact@v3
         with:
