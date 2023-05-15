@@ -1,12 +1,12 @@
 # Hello world docker action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action check image security options to greet to the log.
 
 ## Inputs
 
 ## `image-check`
 
-**Required** Security options for mirroring to be checked. Default `"tools"`.
+**Required** Security options for image to be checked. Default `"tools"`.
 
 ## `image`
 
@@ -26,6 +26,6 @@ Image check result.
 
 uses: actions/docker-image-action@v2
 with:
-  image-check: tools
-  image: node:latest
-  output: tools.txt
+image-check: tools
+image: node:latest
+output: tools.txt
