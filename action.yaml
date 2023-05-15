@@ -21,3 +21,6 @@ runs:
     - id: image-check
       run: sudo ${{ github.action_path }}image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }} >> result.txt && echo "result='"$(cat ./result.txt)"'" >> $GITHUB_OUTPUT
       shell: bash
+    - id: output image-check result
+      run: cat ${{ steps.hello.outputs.result }}
+      shell: bash
