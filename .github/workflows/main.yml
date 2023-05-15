@@ -16,5 +16,8 @@ jobs:
           image-check: 'tools'
           image: 'node:latest'
       # Use the output from the `hello` step
-      - name: Get the output image
-        run: "${{ steps.hello.outputs }}"
+      - name: Archive image check results
+        uses: actions/upload-artifact@v3
+        with:
+          name: image-check-result
+          path: result.txt
