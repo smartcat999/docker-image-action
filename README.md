@@ -4,18 +4,28 @@ This action prints "Hello World" or "Hello" + the name of a person to greet to t
 
 ## Inputs
 
-## `who-to-greet`
+## `image-check`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Security options for mirroring to be checked. Default `"tools"`.
+
+## `image`
+
+**Required** Image to be checked.
+
+## `output`
+
+**Required** Image check result. Default `"result.txt"`.
 
 ## Outputs
 
-## `time`
+## `result`
 
-The time we greeted you.
+Image check result.
 
 ## Example usage
 
 uses: actions/docker-image-action@v2
 with:
-who-to-greet: 'Mona the Octocat'
+  image-check: tools
+  image: node:latest
+  output: tools.txt

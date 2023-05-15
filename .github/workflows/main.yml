@@ -13,11 +13,12 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: image-check
         with:
-          image-check: 'tools'
-          image: 'node:latest'
+          image-check: tools
+          image: node:latest
+          output: tools.txt
       # Use the output from the `hello` step
       - name: Archive image check results
         uses: actions/upload-artifact@v3
         with:
           name: image-check-result
-          path: result.txt
+          path: tools.txt
