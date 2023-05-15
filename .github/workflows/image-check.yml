@@ -23,6 +23,20 @@ jobs:
           name: tools-image-check-result
           path: tools.txt
 
+      - name: Image check action step
+        uses: ./ # Uses an action in the root directory
+        id: image-check
+        with:
+          image-check: permission
+          image: node:latest
+          output: permission.txt
+      # Use the output from the `hello` step
+      - name: Archive image check results
+        uses: actions/upload-artifact@v3
+        with:
+          name: permission-image-check-result
+          path: permission.txt
+
   permission-image-check-job:
     runs-on: ubuntu-latest
     name: A job to check image security configuration
