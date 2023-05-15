@@ -1,4 +1,4 @@
-# Hello world docker action
+Docker image action
 
 This action check image security options to greet to the log.
 
@@ -24,8 +24,10 @@ Image check result.
 
 ## Example usage
 
-uses: actions/docker-image-action@v2
+```yaml
+uses: actions/docker-image-action@v2 
 with:
-image-check: tools
-image: node:latest
-output: tools.txt
+  image-check: tools
+  image: node:latest
+  output: tools.txt
+```
