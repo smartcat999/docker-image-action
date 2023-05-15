@@ -20,7 +20,7 @@ jobs:
       - name: Archive image check results
         uses: actions/upload-artifact@v3
         with:
-          name: image-check-result
+          name: tools-image-check-result
           path: tools.txt
 
   permission-image-check-job:
@@ -42,5 +42,5 @@ jobs:
       - name: Archive image check results
         uses: actions/upload-artifact@v3
         with:
-          name: image-check-result
+          name: permission-image-check-result
           path: permission.txt
