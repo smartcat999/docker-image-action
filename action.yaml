@@ -23,7 +23,7 @@ runs:
     - run: docker pull ${{ inputs.image }}
       shell: bash
     - id: image-check
-      run: echo "" > ${{ inputs.output }} && sudo ${{ github.action_path }}/image-check.sh ${{ inputs.image-check }} | grep ${{ inputs.image }} > ${{ inputs.output }} && echo "result='"$(cat ${{ inputs.output }})"'" >> $GITHUB_OUTPUT
+      run: sudo ${{ github.action_path }}/image-check.sh ${{ inputs.image-check }} ${{ inputs.image }} && echo "result='"$(cat ${{ inputs.output }})"'" >> $GITHUB_OUTPUT
       shell: bash
     - id: image-check-result
       run: cat ${{ inputs.output }}
