@@ -1,6 +1,6 @@
 # action.yml
 name: 'Image Check'
-description: 'Greet someone and record the time'
+description: 'Image Security Check'
 inputs:
   image-check:  # id of input
     description: 'tools/permission'
